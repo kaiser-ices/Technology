@@ -1,0 +1,36 @@
+leo = 4
+mao = leo * 2 + 100 - 4 / 2 + 7 * 9 - 3 * 1
+leo = 1
+dog = 1000000
+
+
+if leo < 10 then
+  dog = 9
+else
+  terada = 5
+endif
+
+if dog <= 999 then
+  cat = 9
+else if mao > 0 then
+  rat = 8
+endif
+
+
+a = 0
+terada = 100
+
+do while a < 3
+  terada = terada + a
+  a = a + 1
+  print a,"だよ"
+  satou = 5
+loop
+
+print a
+a=7
+print "aの内容は ",a
+
+printer yamada leo
+hana "だよ"
+
