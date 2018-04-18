@@ -1,0 +1,166 @@
+ul.tab_all {
+list-style-type: none;
+}
+
+ul.tab_all li {
+float: left;
+}
+
+ul.tab_all li a {
+text-decoration: none;
+display: block;
+width: 150px;
+height: 30px;
+text-align: center;
+padding-top: 10px;
+border-radius: 20px 20px 0 0;
+color: #000;
+margin-right: 1px;
+}
+
+div.tab {
+clear: both;
+width: 200px;
+height: auto;
+overflow: auto;
+border-radius: 0 0 10px 10px;
+padding: 200px;
+}
+
+ul.tab_all li a.tab1 {
+background-color: #FFC;
+}
+
+ul.tab_all li a.tab2 {
+background-color: #CFF;
+}
+
+ul.tab_all li a.tab3 {
+background-color: #CCF;
+}
+
+#tab1 {
+background-color: #FFC;
+}
+
+#tab2 {
+background-color: #CFF;
+}
+
+#tab3 {
+background-color: #CCF;
+}
+
+form {
+    /* フォームをページの中央に置く */
+    
+    width: 200px;
+    /* フォームの範囲がわかるようにする */
+    padding: 1em;
+    border: 1px solid #CCC;
+    border-radius: 1em;
+}
+form div + div {
+    margin-top: 1em;
+}
+label {
+    /* すべてのラベルを同じサイズにして、きちんと揃える */
+    display: inline-block;
+    width: 90px;
+    text-align: right;
+}
+input, textarea {
+    /* すべてのテキストフィールドのフォント設定を一致させる
+       デフォルトで、textarea は等幅フォントが設定されている */
+    font: 1em sans-serif;
+
+    /* すべてのテキストフィールドを同じサイズにする */
+    width: 200px;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+
+    /* テキストフィールドのボーダーの外見を同一にする */
+    border: 1px solid #999;
+}
+input:focus, textarea:focus {
+    /* アクティブな要素を少し強調する */
+    border-color: #000;
+}
+textarea {
+    /* 複数行のテキストフィールドをラベルにきちんと揃える */
+    vertical-align: top;
+
+    /* テキスト入力に十分な領域を与える */
+    height: 5em;
+
+    /* ユーザが textarea を垂直方向にリサイズできるようにする
+       これが動作しないブラウザもある */
+    resize: vertical;
+}
+.button {
+    /* ボタンを他のテキストフィールドと同じ場所に置く */
+    padding-left: 90px; /* label 要素と同じサイズ */
+}
+button {
+    /* このマージンは、ラベルとテキストフィールドの間のスペースと
+       おおよそ同じスペースを表す */
+    margin-left: .5em;
+}
+.star-rating {
+  position: relative;
+  width: 5em;
+  height: 1em;
+  font-size: 25px;
+
+}
+.star-rating-front {
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  color: #ffcc33;
+}
+.star-rating-back {
+  color: #ccc;
+}
+.hyouka{
+ display: -ms-flex;
+ display: -webkit-flex;
+ display: -moz-flex;
+ display: -o-flex;
+ display: flex;
+ 
+ flex-direction: -ms-row-reverse;
+ flex-direction: -webkit-row-reverse;
+ flex-direction: -moz-row-reverse;
+ flex-direction: -o-row-reverse;
+ flex-direction: row-reverse;
+  
+justify-content: -ms-right;
+justify-content: -webkit-right;
+justify-content: -moz-right;
+justify-content: -o-right;
+justify-content: right;
+}
+.hyouka input[type='radio']{
+  display: none;
+}
+.hyouka input[type='radio']{
+  display: none;
+}
+.hyouka label{
+  position: relative;
+  padding: 10px 0px 20px 0px;
+  color: #bbb;
+  cursor: pointer;
+  font-size: 30px;
+}
+ 
+.hyouka label:hover,
+.hyouka label:hover ~ label,
+.hyouka input[type='radio']:checked ~ label{
+  color: #faee2e;
+}
+
+.tab td{width:100px;}
+.tab td div{width:100px;height:1.1em;overflow:hidden;}

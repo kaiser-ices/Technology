@@ -1,0 +1,73 @@
+package schoolManager;
+
+public class Review{
+
+    private int post_user_id = 0;
+    private int text = 0;
+    private int date = 0;
+    private int day = 0;
+    private int time = 0;
+    private int id = 0;
+    private int post_map_id = 0;
+    private int star = 0;
+
+    public Review(int post_user_id,int text,int date,int day,int time,int id,int post_map_id,int star){
+
+	this.post_user_id = post_user_id;
+	this.text = text;
+	this.date = date;
+	this.day = day;
+	this.time = time;
+	this.id = id;
+	this.post_map_id = post_map_id;
+	this.star = star;
+    }
+
+    public int getPost_user_id(){
+
+	return post_user_id;
+
+    }
+
+    public int getText(){
+
+	return text;
+
+    }
+
+    public int getDate(){
+
+	return date;
+
+    }
+
+    public int getDay(){
+
+	return day;
+
+    }
+
+    public int getTime(){
+
+	return time;
+
+    }
+
+    public int getId(){
+
+	return id;
+
+    }
+
+    public int getPost_map_id(){
+
+        return post_map_id;
+
+    }
+
+    public int getStar(){
+
+	return star;
+
+    }
+}

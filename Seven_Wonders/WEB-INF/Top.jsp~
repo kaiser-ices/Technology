@@ -1,0 +1,159 @@
+<%@ page contentType="text/html;charset=UTF-8"%>
+<jsp:useBean id="message" class="java.lang.String" scope="request"/>
+<jsp:useBean id="userName" class="java.lang.String" scope="session"/>
+<jsp:useBean id="roomList" type="java.util.ArrayList<schoolManager.Room>" scope="request"/>
+<jsp:useBean id="reviewList" type="java.util.ArrayList<schoolManager.Review>" scope="request"/>
+
+<html>
+  <head>
+    <meta charset="UTF-8">
+      <title>top</title>
+      <link rel="stylesheet" type="text/css" href="/Seven_Wonders/css/TOP.css"></head>
+      <script type="text/javascript" src="/Seven_Wonders/js/top.js"></script>
+      <body>
+        <div style="width: 500; margin: 0 auto;">
+
+          <% if(message != null){ %>
+            <font color="red"><%=message %></font>
+            <br>
+            <% } %>
+
+            <div align=right>
+
+    public Review getReviewById(String id) throws Exception{
+	return getReviewById(Integer.parseInt(id));
+    }
+
+    public Review getReviewById(int id) throws Exception{
+	
+	Review review = null;
+	ResultSet rs = null;
+
+	String sql = "select * from schoolmap_tbl where id=" + id;
+	rs = st.executeQuery(sql);
+              ようこそ、<%=userName %>さん
+              <a href="?action=logout">（ログアウト）</a>
+            </div>
+
+            <div id="tab_box">
+              <ul class="tab_all">
+
+                <li>
+                  <a href="#tab1" class="tab1" onClick="change_tab('tab1');return false;">rannking</a>
+                </li>
+
+                <li>
+                  <a href="#tab2" class="tab2" onClick="change_tab('tab2');return false;">review</a>
+                </li>
+
+                <li>
+                  <a href="#tab3" class="tab3" onClick="change_tab('tab3');return false;">map</a>
+                </li>
+              </ul>
+
+              <div id="tab1" class="tab">
+                <p>ランキング<br></p>
+		<table border=1>
+                 <tr>
+                  <td>content</td>
+                  <td>date</td>
+                  <td>day</td>
+                  <td>time</td>
+		  <td>name</td>
+                  <td>build</td>  
+                  <td>star</td>
+                 </tr>
+
+                 <% for(int i =0; i< reviewList.size();i++){%>
+                  <tr>
+                   <td><%= reviewList.get(i).getText() %></td>
+                   <td><%= reviewList.get(i).getDate() %></td>
+                   <td><%= reviewList.get(i).getDay() %></td>
+                   <td><%= reviewList.get(i).getTime() %></td>
+	           <td><%= reviewList.get(i).getId() %></td>
+		   <td><%= reviewList.get(i).getPost_user_id() %></td>
+                   <td><%= reviewList.get(i).getStar() %></td>
+                  </tr>
+                  <%}%>
+                 </table>
+                </div>
+
+                <div id="tab2" class="tab">
+                  <p>レビュー<br></p>
+                    <form action="?action=rev" method="post">
+                      <div>
+                        <label for="name">Name:</label>
+                        <%=userName %>
+                      </div>
+
+                      <div>
+                        <label for="room_name">Build:</label>
+                        <select name="build">
+                          <option value="片柳研究棟">片柳研究棟</option>
+                          <option value="FOODS FUU">FOODS FUU</option>
+                          <option value="研究棟A">研究棟A</option>
+                          <option value="本部棟">本部棟</option>
+                          <option value="図書館等">図書館棟</option>
+                          <option value="厚生棟">厚生棟</option>
+                          <option value="メディアホール">メディアホール</option>
+                          <option value="講義棟A">講義棟A</option>
+                          <option value="講義実験棟">講義実験棟</option>
+                          <option value="研究棟C">研究棟C</option>
+                          <option value="実験棟A">実験棟A</option>
+                          <option value="体育館">体育館</option>
+                          <option value="講義棟D">講義棟D</option>
+                        </select>
+                        <input type="build" id="room_name"/>
+                      </div>
+
+                      <div>
+                        <label for="msg">Massage:</label>
+			<select name="msg">
+                        <textarea type="msg"></textarea>
+                        <form type="get" action="">
+  <div class="hyouka">
+    <input id="hoshi1" type="radio" name="hoshi" value="5" />
+    <label for="hoshi1">★</label>
+    <input id="hoshi2" type="radio" name="hoshi" value="4" />
+    <label for="hoshi2">★</label>
+    <input id="hoshi3" type="radio" name="hoshi" value="3" />
+    <label for="hoshi3">★</label>
+    <input id="hoshi4" type="radio" name="hoshi" value="2" />
+    <label for="hoshi4">★</label>
+    <input id="hoshi5" type="radio" name="hoshi" value="1" />
+    <label for="hoshi5">★</label>
+  </div>
+</form>
+</select>
+                      </div>
+
+                      <div class="button">
+                        <button type="submit">Send your message</button>
+                      </div>
+                    </form>
+                  </div>
+
+                  <div id="tab3" class="tab">
+                    <h1>build</h1>
+                      <table border=1>
+                        <tr>
+                          <td>建物ID</td>
+                          <td>建物名</td>
+                          <td>フロア名</td>
+                          <td>クリック回数</td>
+                        </tr>
+
+                        <% for(int i =0; i< roomList.size();i++){%>
+                          <tr>
+                            <td><%= roomList.get(i).getId() %></td>
+                            <td><%= roomList.get(i).getBuild() %></td>
+                            <td><%= roomList.get(i).getFloor() %></td>
+                            <td><%= roomList.get(i).getCount() %></td>
+                          </tr>
+                        <%}%>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </body>
+            </html>
